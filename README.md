@@ -5,14 +5,12 @@ Code for gas leakage detection
 #include <LiquidCrystal.h>
 LiquidCrystal lcd(5,6,8,9,10,11);
 
-
 //pin variables
 int redled = 3;
 int greenled = 2;
 int buzzer = 4;
 int sensor = A0;
 int sensorThresh = 344;
-
 
  void setup()
  {
@@ -24,15 +22,16 @@ int sensorThresh = 344;
    lcd.begin(16,2);
  }
 
-
 void loop()
 {
  int analogValue = analogRead(sensor);
   
   Serial.print("GAS VALUE :");
+  
   Serial.println(analogRead(sensor));
   
   //gas concenteration condition
+  
   if(analogValue>sensorThresh)
   {
     digitalWrite(redled,HIGH);
@@ -41,6 +40,7 @@ void loop()
     lcd.clear();
     
     //to print on LCD
+    
     lcd.setCursor(0,1);
     lcd.print("ALERT");
     delay(1000);
@@ -49,6 +49,7 @@ void loop()
     lcd.print("GAS DETECTED");
     delay(1000);
   }
+  
   else
   {
     digitalWrite(greenled,HIGH);
