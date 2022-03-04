@@ -1,3 +1,8 @@
+**#Gas Leakage dectection**
+
+Code for Gas leakage detector :)
+
+
 #include <LiquidCrystal.h>
 
 LiquidCrystal lcd(5,6,8,9,10,11);
